@@ -36,7 +36,7 @@ Jugador::~Jugador()
  void Jugador::dibujar(Graphics^ canvas)
 {
 
-	 Pen^ lapiz = gcnew Pen(Color::Red);
+	 Pen^ lapiz = gcnew Pen(Color::Yellow);
 
 	 Point p1 = Point(x, y + alto);
 	 Point p2 = Point(x + ancho / 2, y);

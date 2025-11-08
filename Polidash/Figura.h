@@ -28,6 +28,10 @@
 		int getLados();
 		int getX();		
 		int getY();
+		int getVelocidad();
+		int getNumero();
+		int getancho();
+		int getalto();
 
 
 
@@ -98,3 +102,21 @@
 	 {
 		 return y;
 	 }
+
+	   int Figura::getNumero()
+	  {
+		  return numeroCentral;
+	  }
+	    int Figura::getancho()
+	   {
+		   return ancho;
+	   }
+	   int Figura::getVelocidad()
+	   {
+		   return velocidad;
+	   }
+
+	   int Figura::getalto()
+	   {
+		   return alto;
+	   }
