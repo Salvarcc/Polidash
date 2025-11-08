@@ -1,7 +1,9 @@
 #pragma once
-using namespace System;
 
-#include "iostream"
+using namespace System;
+using namespace System::Drawing;
+using namespace std;
+
 
 class Figura
 {
@@ -9,8 +11,9 @@ public:
 	Figura();
 	~Figura();
 
-	virtual void dibujar() = 0;
-	
+	virtual void dibujar(Graphics ^canvas) = 0;
+	virtual void mover() = 0;
+
 
 
 
@@ -21,7 +24,7 @@ private:
 	int velocidad;
 	int lados;
 	int numeroCentral;
-	string color;
+	int color;
 
 
 
