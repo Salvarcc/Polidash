@@ -1,6 +1,5 @@
 #pragma once
 #include "Figura.h"
-#include "conio.h"
 
 
 class Jugador : public Figura
@@ -16,14 +15,14 @@ public:
 
 	void moverWASD(char direccion);
 
-	
+
 private:
 
-	
+
 
 };
 
-Jugador::Jugador() : Figura (100,300,100,100, 3, 0, rand() % (3 - 1 + 1)+1)
+Jugador::Jugador() : Figura(100, 300, 100, 100, 3, 0, rand() % (3 - 1 + 1) + 1)
 {
 
 
@@ -36,10 +35,12 @@ Jugador::~Jugador()
 void Jugador::dibujar(Graphics^ canvas)
 {
 	SolidBrush^ lapiz;
+	Font^ fuente = gcnew Font("Arial", 12);
 
 	if (color == 1) {
 
 		lapiz = gcnew SolidBrush(Color::Yellow);
+
 
 	}
 	if (color == 2) {
@@ -61,6 +62,7 @@ void Jugador::dibujar(Graphics^ canvas)
 	array<Point>^ points = { p1,p2,p3 };
 
 	canvas->FillPolygon(lapiz, points);
+	canvas->DrawString(numeroCentral.ToString(), fuente, Brushes::Black, x + 25, y + 25);
 
 }
 
@@ -96,6 +98,5 @@ void Jugador::moverWASD(char direccion)
 	}
 
 }
-
 
 

@@ -229,9 +229,8 @@ namespace Polidash {
 		if (e->KeyCode == Keys::Up) {
 			jugador->borrar(graficos);
 			jugador->moverWASD(72);
-
-
 			jugador->dibujar(graficos);
+
 		}
 		else if (e->KeyCode == Keys::Down) {
 			jugador->borrar(graficos);
