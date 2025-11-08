@@ -13,6 +13,7 @@ public:
 	void dibujartramo2(Graphics^ canvas);
 	void dibujartramo3(Graphics^ canvas);
 
+
 	void dibujarcirculo(Graphics^ graficos);
 	void borrar(Graphics^ graficos);
 	void mover(int circulo, int direccionCirculo);
@@ -68,6 +69,8 @@ void Minimapa::dibujartramo3(Graphics^ canvas)
 
 
 }
+
+
 
 
 void Minimapa::dibujarcirculo(Graphics^ graficos)

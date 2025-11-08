@@ -32,7 +32,11 @@
 		int getNumero();
 		int getancho();
 		int getalto();
+		int gettramo() {
+			return tramo;
+		}
 
+		
 
 
 	protected:
@@ -45,9 +49,10 @@
 		int color;
 		int ancho;
 		int alto;
+		int tramo;
+		int vuelta;
 
-
-
+		void cambiodevelo();
 
 	};
 
@@ -65,7 +70,8 @@
 		 this->color = color;
 		 this->ancho = ancho;
 		 this->alto = alto;
-
+		 vuelta = 2;
+		 tramo = 1;
 
 
 
@@ -73,6 +79,14 @@
 
 	Figura::~Figura()
 	{
+	}
+
+	void Figura::cambiodevelo() {
+		Random f;
+		if (tramo == vuelta) {
+			velocidad = f.Next(1, 11);
+			vuelta++;
+		}
 	}
 
 	 void Figura::setX(int x)
