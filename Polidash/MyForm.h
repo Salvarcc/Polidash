@@ -29,6 +29,7 @@ namespace Polidash {
 			canvas = this->CreateGraphics();
 
 
+			graficos = panel1->CreateGraphics();
 
 
 
@@ -66,12 +67,14 @@ namespace Polidash {
 	private: System::Windows::Forms::Label^ LblNumero;
 	private: System::Windows::Forms::Label^ LblAngulos;
 	private: System::Windows::Forms::Label^ LblVelocidad;
+	private: System::Windows::Forms::Timer^ timer2;
 
 
 
 
 
 		   Graphics^ canvas;
+		   Graphics^ graficos;
 
 
 #pragma region Windows Form Designer generated code
@@ -91,6 +94,7 @@ namespace Polidash {
 			   this->LblNumero = (gcnew System::Windows::Forms::Label());
 			   this->LblAngulos = (gcnew System::Windows::Forms::Label());
 			   this->LblVelocidad = (gcnew System::Windows::Forms::Label());
+			   this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
 			   this->SuspendLayout();
 			   // 
 			   // panel1
@@ -168,6 +172,11 @@ namespace Polidash {
 			   this->LblVelocidad->TabIndex = 7;
 			   this->LblVelocidad->Text = L"Velocidad del tramo:";
 			   // 
+			   // timer2
+			   // 
+			   this->timer2->Enabled = true;
+			   this->timer2->Tick += gcnew System::EventHandler(this, &MyForm::timer2_Tick);
+			   // 
 			   // MyForm
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -184,6 +193,8 @@ namespace Polidash {
 			   this->Name = L"MyForm";
 			   this->Text = L"MyForm";
 			   this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			   this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyDown);
+			   this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyUp);
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
 
@@ -199,10 +210,55 @@ namespace Polidash {
 
 		LblLado->Text = "Lados: " + jugador->getLados();
 		LblNumero->Text = "Numero central: " + jugador->getNumero();
-		LblAngulos->Text = "Suma de angulos: " + (jugador->getLados() - 2)*180;
+		LblAngulos->Text = "Suma de angulos: " + (jugador->getLados() - 2) * 180;
 		LblVelocidad->Text = "Velocidad del tramo: " + jugador->getVelocidad();
 
 	}
 
+	private: System::Void timer2_Tick(System::Object^ sender, System::EventArgs^ e) {
+
+		jugador->dibujar(graficos);
+
+
+
+	}
+	private: System::Void MyForm_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+
+
+
+		if (e->KeyCode == Keys::Up) {
+			jugador->borrar(graficos);
+			jugador->moverWASD(72);
+
+
+			jugador->dibujar(graficos);
+		}
+		else if (e->KeyCode == Keys::Down) {
+			jugador->borrar(graficos);
+			jugador->moverWASD(80);
+			jugador->dibujar(graficos);
+
+		}
+		else if (e->KeyCode == Keys::Left) {
+			jugador->borrar(graficos);
+			jugador->moverWASD(75);
+			jugador->dibujar(graficos);
+
+		}
+		else if (e->KeyCode == Keys::Right) {
+			jugador->borrar(graficos);
+			jugador->moverWASD(77);
+			jugador->dibujar(graficos);
+
+		}
+
+
+
+
+
+	}
+	private: System::Void MyForm_KeyUp(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+
+	}
 	};
 }
