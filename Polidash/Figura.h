@@ -61,7 +61,7 @@
 		 this->y = y;
 		 this->lados = lados;
 		 this->numeroCentral = numeroCentral;
-		 velocidad= rand() % (10 - 5 + 1) + 10;
+		 velocidad= rand() % (10 - 5 + 1) + 5;
 		 this->color = color;
 		 this->ancho = ancho;
 		 this->alto = alto;

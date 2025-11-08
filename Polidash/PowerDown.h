@@ -1,5 +1,5 @@
 #pragma once
-#include "Header1.h"
+#include "Figura.h"
 using namespace System;
 
 class PowerDown : Figura
@@ -35,18 +35,18 @@ void PowerDown::dibujar(Graphics^ canvas)
 	switch (lados) {
 
 	case 1:
-
+	{
 
 
 		canvas->DrawEllipse(lapiz, x, y, ancho, alto);
 		canvas->DrawString(numeroCentral.ToString(), fuente, Brushes::Black, x, y);
 
 		break;
-
+	}
 
 	case 2:
 
-
+	{
 		Point p1 = Point(x, y + alto);
 		Point p2 = Point(x + ancho / 2, y);
 		Point p3 = Point(x + ancho, y + alto);
@@ -57,13 +57,14 @@ void PowerDown::dibujar(Graphics^ canvas)
 		canvas->DrawString(numeroCentral.ToString(), fuente, Brushes::Black, x, y);
 
 		break;
+	}
 
-
-	case 3:
+	case 3: {
 
 		canvas->DrawRectangle(lapiz, x, y, ancho, alto);
 		canvas->DrawString(numeroCentral.ToString(), fuente, Brushes::Black, x, y);
 
+	}
 	}
 
 }
@@ -78,15 +79,18 @@ void PowerDown::borrar(Graphics^ canvas)
 	case 1:
 
 
+	{
 
 		canvas->DrawEllipse(lapiz, x, y, ancho, alto);
 		canvas->DrawString(numeroCentral.ToString(), fuente, Brushes::Black, x, y);
 
 		break;
+	}
 
 
 	case 2:
 
+	{
 
 		Point p1 = Point(x, y + alto);
 		Point p2 = Point(x + ancho / 2, y);
@@ -98,12 +102,15 @@ void PowerDown::borrar(Graphics^ canvas)
 		canvas->DrawString(numeroCentral.ToString(), fuente, Brushes::Black, x, y);
 
 		break;
+	}
 
 
 	case 3:
 
+	{
 		canvas->DrawRectangle(lapiz, x, y, ancho, alto);
 		canvas->DrawString(numeroCentral.ToString(), fuente, Brushes::Black, x, y);
+	}
 
 	}
 
